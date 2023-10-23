@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PokedexSimpleComponent } from './components/simple/pokedex-simple/pokedex-simple.component';
-import { BigPokemonComponent } from './components/shared/big-pokemon/big-pokemon.component';
 import { DashboardComponent } from './components/simple/dashboard/dashboard.component';
 import { LoginSimpleComponent } from './components/simple/login-simple/login-simple.component';
 import { NgrxLoginComponent } from './components/ngrx/ngrx-login/ngrx-login.component';
 import { NgRxDashboardComponent } from './components/ngrx/dashboard/ngrxdashboard.component';
 import { NgrxPokedexComponent } from './components/ngrx/ngrx-pokedex/ngrx-pokedex.component';
 import { NgrxPokemonComponent } from './components/ngrx/ngrx-pokemon/ngrx-pokemon.component';
+import { SimpleBigPokemonComponent } from './components/shared/simple-big-pokemon/simple-big-pokemon.component';
+import { NgrxWrapperComponent } from './components/ngrx/ngrx-wrapper/ngrx-wrapper.component';
+import { SimpleWrapperComponent } from './components/simple/simple-wrapper/simple-wrapper.component';
 
 const routes: Routes = [
   {
@@ -15,12 +17,17 @@ const routes: Routes = [
     title: 'simple',
     children: [
       { path: 'login', component: LoginSimpleComponent },
-      { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'dashboard',
+        component: SimpleWrapperComponent,
+        children: [{ path: '', component: DashboardComponent }],
+      },
       {
         path: 'pokedex',
+        component: SimpleWrapperComponent,
         children: [
           { path: '', component: PokedexSimpleComponent },
-          { path: ':id', component: BigPokemonComponent },
+          { path: ':id', component: SimpleBigPokemonComponent },
         ],
       },
     ],
@@ -30,9 +37,14 @@ const routes: Routes = [
     title: 'ngrx',
     children: [
       { path: 'login', component: NgrxLoginComponent },
-      { path: 'dashboard', component: NgRxDashboardComponent },
+      {
+        path: 'dashboard',
+        component: NgrxWrapperComponent,
+        children: [{ path: '', component: NgRxDashboardComponent }],
+      },
       {
         path: 'pokedex',
+        component: NgrxWrapperComponent,
         children: [
           { path: '', component: NgrxPokedexComponent },
           { path: ':id', component: NgrxPokemonComponent },

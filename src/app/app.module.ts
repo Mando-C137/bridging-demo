@@ -23,6 +23,9 @@ import { PokemonEffects } from './state/pokemon/pokemon.effects';
 import { pokemonReducer } from './state/pokemon/pokemon.reducer';
 import { PokedexArrowsComponent } from './components/shared/pokedex/pokedex-arrows/pokedex-arrows.component';
 import { NgrxPokemonComponent } from './components/ngrx/ngrx-pokemon/ngrx-pokemon.component';
+import { SimpleBigPokemonComponent } from './components/shared/simple-big-pokemon/simple-big-pokemon.component';
+import { NgrxWrapperComponent } from './components/ngrx/ngrx-wrapper/ngrx-wrapper.component';
+import { SimpleWrapperComponent } from './components/simple/simple-wrapper/simple-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { NgrxPokemonComponent } from './components/ngrx/ngrx-pokemon/ngrx-pokemo
     NgrxPokedexComponent,
     PokedexArrowsComponent,
     NgrxPokemonComponent,
+    SimpleBigPokemonComponent,
+    NgrxWrapperComponent,
+    SimpleWrapperComponent,
   ],
   imports: [
     BrowserModule,
